@@ -1,0 +1,15 @@
+{
+  "name": "jo-work",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "guillaumeprou92@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "papaparse": "^4.6.3"
+  }
+}
