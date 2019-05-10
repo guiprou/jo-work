@@ -21,21 +21,21 @@ const readFile = (url, callback) => {
 // function which populate an array sorted by a main item attached to one/multiple sub items
 const populateArray = (array, mainItem, subItem) => {
   
- // check if mainItem is already or not in the array
+ // check if main item is already or not in the array (no duplicate)
   const itemInArray = array.some(item => {
     for (const key in item) {
        return key === mainItem
     }
   })
 
-  // if not in array create a new entry with the mainItem and its related subItem
+  // if not in array create a new entry with the main item and its related sub item
   if (!itemInArray) {
     const entry = [];
     entry[mainItem] = [subItem];
     array.push(entry);
   }
 
-  // if already in array, just add the new subItem to corresponding mainItem
+  // if already in array, just add the new sub item to corresponding main item
   else {
     array.forEach(item => {
       for (const key in item) {
@@ -53,10 +53,10 @@ const processData = (data, callback) => {
   let resultByProduct = [];
   let resultByType = [];
 
-  // for each entry create 2 arrays: one sorted by products a second one sorted by type of query
+  // from each entry populate 2 arrays: one sorted by product a second one sorted by type of query
   data.forEach(query => {
     
-    // type is the 1st column, product the 2nd one
+    // it's expected that type is the 1st column, product the 2nd one
     const type = query[0];
     const product = query[1];
 
@@ -85,7 +85,7 @@ const processData = (data, callback) => {
       let selectedProduct = '';
       let higherNumber = 0;
       
-      // run through query's related products to pick up the best one: it'll be the product which covers the most queries
+      // run through query's linked products to pick up the best candidate: it'll be the product which covers the most queries
       products.forEach(candidateProduct => {
         
         // find number of queries associated to a product from the array sorted by product
@@ -95,7 +95,7 @@ const processData = (data, callback) => {
           }
         })[0][candidateProduct].length;
         
-        // compare the number of queries for the current product with previous one (by default 1st one) and keep the higher
+        // compare the number of queries for the current product with previous one (by default 1st one) and keep the higher number
         if (numberOfQueries > higherNumber) {
           selectedProduct = candidateProduct;
           higherNumber = numberOfQueries;
@@ -134,7 +134,7 @@ const writeIntoFile = (url, data) => {
   });
 }
 
-// High level algorythm:
+// high level algorythm:
 readFile(config.inputFile, data => {
 //console.log(data)
   processData(data, result => {
