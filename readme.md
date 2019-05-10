@@ -5,6 +5,7 @@ This app does Jo's work for him.
 
 ### Requirements
 You must have `node` and `npm` installed in order to run this project.
+https://nodejs.org/en/download/
 
 ### Setup App
 We can now install our dependencies, these are broken down into `npm` dependencies which are usually build services/utilities.
