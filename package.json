@@ -10,6 +10,6 @@
   "author": "guillaumeprou92@gmail.com",
   "license": "ISC",
   "dependencies": {
-    "papaparse": "^4.6.3"
+    "papaparse": "^5.2.0"
   }
 }
